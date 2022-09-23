@@ -32,15 +32,15 @@ class RedirectIfAuthenticated
         // }
         
         //プロパティにアクセス：self::GUARD_USER ->check()これで認証しているか判別
-        if(Auth::guard(self::GUARD_USER->check()) && $request->routeIs('user.*')){
+        if(Auth::guard(self::GUARD_USER)->check() && $request->routeIs('user.*')){
             return redirect(RouteServiceProvider::HOME);
         }
         
-        if(Auth::guard(self::GUARD_OWNER->check()) && $request->routeIs('owner.*')){
+        if(Auth::guard(self::GUARD_OWNER)->check() && $request->routeIs('owner.*')){
             return redirect(RouteServiceProvider::OWNER_HOME);
         }
         
-        if(Auth::guard(self::GUARD_ADMIN->check()) && $request->routeIs('admin.*')){
+        if(Auth::guard(self::GUARD_ADMIN)->check() && $request->routeIs('admin.*')){
             return redirect(RouteServiceProvider::ADMIN_HOME);
         }
         return $next($request);
