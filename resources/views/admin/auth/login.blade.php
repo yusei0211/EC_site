@@ -1,10 +1,12 @@
 <x-guest-layout>
-    アドミン用
     <x-auth-card>
+        アドミン用
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <div class="w-28">
+                <a href="/">
+                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                </a>
+            </div>
         </x-slot>
 
         <!-- Session Status -->
