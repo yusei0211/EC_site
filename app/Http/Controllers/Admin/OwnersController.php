@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use APP\Models\Owner;//エロクアントの読み込み
+use App\Models\Owner;//エロクアントの読み込み
 use Illuminate\Support\Facades\DB;//QueryBuilder
+use Carbon\Carbon;
 
 class OwnersController extends Controller
 {
@@ -23,15 +24,21 @@ class OwnersController extends Controller
      
     public function index()
     {
+        $date_now = Carbon::now();
+        $date_parse = Carbon::parse(now());
+        echo $date_now;
+        echo $date_parse;
+        
         $e_all = Owner::all();
-        $q_get = DB::table('owners')->select('name')->get();
-        $q_first = DB::table('owners')->select('name')->first();
+        $q_get = DB::table('owners')->select('name','created_at')->get();
+        //$q_first = DB::table('owners')->select('name')->first();
         
-        $c_test = collect([
-                'name' => 'test'
-            ]);
+        // $c_test = collect([
+        //         'name' => 'test'
+        //     ]);
         
-        dd($e_all,$q_get,$q_first,$c_test);
+        //dd($e_all,$q_get,$q_first,$c_test);
+        return view('admin.owners.index',compact('e_all','q_get'));
     }
 
     /**
