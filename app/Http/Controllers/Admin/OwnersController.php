@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Owner;//エロクアントの読み込み
 use Illuminate\Support\Facades\DB;//QueryBuilder
-use Carbon\Carbon;
+use Carbon\Carbon;//時間関係
+use Illuminate\Support\Facades\Hash;
 
 class OwnersController extends Controller
 {
@@ -60,7 +61,21 @@ class OwnersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:owners'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = Owner::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()
+        ->route('admin.owners.index')
+        ->with('message','オーナー登録を実施しました。');
     }
 
     /**
