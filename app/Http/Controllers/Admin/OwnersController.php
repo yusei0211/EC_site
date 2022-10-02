@@ -14,13 +14,7 @@ use Illuminate\Support\Facades\Log;
 
 class OwnersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-     
-     public function __construct()
+     public function __construct()//ログインしているかの確認
      {
          $this->middleware('auth:admin');//middleware()で承認させたものを通したい場合は('auth:admin')と記述
          
