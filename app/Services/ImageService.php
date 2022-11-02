@@ -7,13 +7,21 @@ use InterventionImage;
 
 class ImageService
 {
-    public static function upload($imageFile,$folderName){
-         $fileName = uniqid(rand().'_'); //ユニークidとランダム関数を用いてランダムなファイル名を作成
-        //     $extension = $imageFile->extension(); 
-        //     $fileNameToStore = $fileName. '.' . $extension; //作ったファイル名と拡張子をくっつけて変数に入れる
-        //     $resizedImage = InterventionImage::make($imageFile)->resize(1920, 1080)->encode();//型の違いのため
-        //      Storage::put('public/' . $folderName . '/' . $fileNameToStore, $resizedImage );
-
-        return $fileNameToStore;
+  public static function upload($imageFile, $folderName){
+    //dd($imageFile['image']);
+    //画像が配列で渡ってくるか否かの処理
+    if(is_array($imageFile))
+    {
+      $file = $imageFile['image'];
+    } else {
+      $file = $imageFile;
     }
+
+    $fileName = uniqid(rand().'_');
+    $extension = $file->extension();
+    $fileNameToStore = $fileName. '.' . $extension;
+    //$resizedImage = InterventionImage::make($file)->resize(1920, 1080)->encode();
+    Storage::put('public/' . $folderName . '/' . $fileNameToStore, $file );
+    return $fileNameToStore;
+  }
 }
