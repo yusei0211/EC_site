@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
                 OwnerSeeder::class,
                 ShopSeeder::class,
                 ImageSeeder::class,
-                CategorySeeder::class
+                CategorySeeder::class,
+                ProductSeeder::class,
             ]);
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
