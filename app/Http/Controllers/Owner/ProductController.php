@@ -34,7 +34,8 @@ class ProductController extends Controller
     {
         //ログインしているオーナーが作っているプロダクトの表示
         // EagerLoadingなし
-        $products = Owner::findOrFail(Auth::id())->shop->product;
+        //リレーション先の情報を取得するときに、データの数だけ発行されるn+1問題を回避するためにwithメソッドなどをもちいる。
+        //$products = Owner::findOrFail(Auth::id())->shop->product;
         
         $ownerInfo = Owner::with('shop.product.imageFirst')
         ->where('id', Auth::id())->get();
