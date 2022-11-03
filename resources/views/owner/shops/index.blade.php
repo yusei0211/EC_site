@@ -23,7 +23,7 @@
                             </div>
                             <dev class="text-xl">{{ $shop->name }}</dev>
                             <div>
-                                <x-thumbnail : filename="$shop->filename" type="shops" />
+                                <x-thumbnail :filename="$shop->filename" type="shops" />
                             </div>
                          </div>
                     </a>
