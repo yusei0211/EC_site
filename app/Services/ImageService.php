@@ -21,7 +21,8 @@ class ImageService
     $extension = $file->extension();
     $fileNameToStore = $fileName. '.' . $extension;
     //$resizedImage = InterventionImage::make($file)->resize(1920, 1080)->encode();
-    Storage::put('public/' . $folderName . '/' . $fileNameToStore, $file );
+    // Storage::put('public/' . $folderName . '/' . $fileNameToStore, $file );//Storage::putだとうまくいかなかった
+    Storage::putFileAs('public/' . $folderName . '/' , $file, $fileNameToStore );
     return $fileNameToStore;
   }
 }
