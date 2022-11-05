@@ -33,7 +33,7 @@ class ItemController extends Controller
         ->join('images as image2', 'products.image2', '=', 'image2.id')
         ->join('images as image3', 'products.image3', '=', 'image3.id')
         ->join('images as image4', 'products.image4', '=', 'image4.id')
-        ->where('shops.is_selling', true)
+        ->where('shops.is_selling', true)//販売中かどうかの確認
         ->where('products.is_selling', true)
         ->select('products.id as id', 'products.name as name', 'products.price'
         ,'products.sort_order as sort_order'
