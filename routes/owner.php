@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('owner.welcome');
-});
+// Route::get('/', function () {
+//     return view('owner.welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('owner.dashboard');
@@ -44,7 +44,7 @@ Route::prefix('shops')->
     Route::resource('products',ProductController::class)
     ->middleware('auth:owners')->except('show');
 
-Route::middleware('guest')->group(function () {
+    Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 
