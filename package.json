@@ -21,6 +21,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
-        "micromodal": "^0.4.10"
+        "micromodal": "^0.4.10",
+        "swiper": "^6.7.0"
     }
 }
