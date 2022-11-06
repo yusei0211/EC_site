@@ -119,5 +119,5 @@
     </div>
   </div>
 
-  <script src="{{ mix('js/swiper.js')}}"></script>
+  <script src="{{ asset('js/swiper.js')}}"></script>
 </x-app-layout>
