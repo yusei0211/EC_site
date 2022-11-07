@@ -8,19 +8,22 @@ use App\Models\Product;
 use App\Models\Stock;
 use App\Models\PrimaryCategory;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
+use App\Jobs\SendThanksMail;
 
 class ItemController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth:users');
-        //URLを直接書き換えられ、販売していない商品の参照を防ぐ
+
         $this->middleware(function ($request, $next) {
 
             $id = $request->route()->parameter('item'); 
             if(!is_null($id)){ 
             $itemId = Product::availableItems()->where('products.id', $id)->exists();
-                if(!$itemId){ //ルートパラメータが存在していなかったらabortを返す
+                if(!$itemId){ 
                     abort(404);
                 }
             }
@@ -31,7 +34,14 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         // dd($request);
+
+        // 同期的に送信
+        // Mail::to('test@example.com')
+        // ->send(new TestMail());
         
+        // 非同期に送信
+        // SendThanksMail::dispatch();
+
         $categories = PrimaryCategory::with('secondary')
         ->get();
 
