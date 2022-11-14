@@ -45,7 +45,7 @@ class ItemController extends Controller
         $categories = PrimaryCategory::with('secondary')
         ->get();
 
-        $products = Product::availableItems()
+        $products = Product::AvailableItems()
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
         ->sortOrder($request->sort)

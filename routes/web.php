@@ -43,4 +43,7 @@ Route::get('/component-test2',[ComponentTestController::class,'showComponent2'])
 Route::get('/servicecontainertest',[LifeCycleTestController::class,'showServicecontainerTest']);
 Route::get('/serviceprovidertest',[LifeCycleTestController::class,'showServiceProviderTest']);
 
+Route::get('/cloudinary', [CloudinaryController::class, 'cloudinary']);  //投稿フォームの表示
+Route::post('/cloudinary', [CloudinaryController::class, 'cloudinary_store']);  //画像保存処理
+
 require __DIR__.'/auth.php';

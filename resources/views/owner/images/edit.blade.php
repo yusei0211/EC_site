@@ -25,6 +25,7 @@
                         <div class="relative">
                           <div class="w-32">
                             <x-thumbnail :filename="$image->filename" type="products" />
+                            {{--<img src="{{asset($image->filename}}"/>--}}
                           </div>
                         </div>
                       </div>

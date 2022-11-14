@@ -67,7 +67,7 @@ class ImageController extends Controller
                 $fileNameToStore = ImageService::upload($imageFile, 'products');    
                 Image::create([
                     'owner_id' => Auth::id(),
-                    'filename' => $fileNameToStore  
+                    'filename' => $fileNameToStore // 
                 ]);
             }
         }
