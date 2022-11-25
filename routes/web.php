@@ -16,14 +16,15 @@ use App\Http\Controllers\User\CartController;
 |
 */
 
-Route::get('/', function () {
-    return view('user.welcome');
-});
-
-Route::middleware('auth:users')->group(function(){
-        Route::get('/', [ItemController::class, 'index'])->name('items.index');
-        Route::get('show/{item}', [ItemController::class, 'show'])->name('items.show');
-});
+// Route::get('/', function () {
+//     return view('user.welcome');
+// });
+Route::get('/', [ItemController::class, 'index'])->name('items.index');
+Route::get('show/{item}', [ItemController::class, 'show'])->name('items.show');
+// Route::middleware('auth:users')->group(function(){
+        
+        
+// });
 
 Route::prefix('cart')->middleware('auth:users')->group(function(){
         Route::get('/', [CartController::class, 'index'])->name('cart.index');
