@@ -17,31 +17,31 @@
                     <div class="swiper-wrapper">
                       <!-- Slides -->
                       <div class="swiper-slide">
-                        @if ($product->imageFirst->filename !== null)
-                          <img src="{{ asset('storage/products/' . $product->imageFirst->filename )}}">
+                        @if ($product->imageFirst !== null)
+                          <img src="{{$product->imageFirst->filename}}">
                         @else
-                        <img src="">
+                        <img src="/images/no_image.jpg">
                         @endif
                       </div>
                       <div class="swiper-slide">
                         @if ($product->imageSecond->filename !== null)
-                          <img src="{{ asset('storage/products/' . $product->imageSecond->filename )}}">
+                          <img src="{{$product->imageSecond->filename}}">
                         @else
-                        <img src="">
+                        <img src="/images/no_image.jpg">
                         @endif
                       </div>
                       <div class="swiper-slide">
                         @if ($product->imageThird->filename !== null)
-                          <img src="{{ asset('storage/products/' . $product->imageThird->filename )}}">
+                          <img src="{{$product->imageThird->filename}}">
                         @else
-                        <img src="">
+                        <img src="/images/no_image.jpg">
                         @endif
                       </div>
                       <div class="swiper-slide">
-                        @if ($product->imageFourth->filename !== null)
-                          <img src="{{ asset('storage/products/' . $product->imageFourth->filename )}}">
+                        @if ($product->imageThird->filename !== null)
+                          <img src="{{$product->imageThird->filename}}">
                         @else
-                        <img src="">
+                        <img src="/images/no_image.jpg">
                         @endif
                       </div>
                       

@@ -17,32 +17,32 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert([
             [
                 'owner_id' => 1,
-                'filename' => 'sample1.jpg',
+                'filename' => 'https://res.cloudinary.com/dbxugazeh/image/upload/v1668420836/yp3ibyqbx8zufzks8jxb.jpg',
                 'title' => null
             ],
             [
                 'owner_id' => 1,
-                'filename' => 'sample2.jpg',
+                'filename' => 'https://res.cloudinary.com/dbxugazeh/image/upload/v1668420792/iap4cmgyqf6cbjfd3jq0.jpg',
                 'title' => null
             ],
             [
                 'owner_id' => 1,
-                'filename' => 'sample3.jpg',
+                'filename' => 'https://res.cloudinary.com/dbxugazeh/image/upload/v1668413739/sample.jpg',
                 'title' => null
             ],
             [
                 'owner_id' => 1,
-                'filename' => 'sample4.jpg',
+                'filename' => 'https://res.cloudinary.com/dbxugazeh/image/upload/v1668413766/cld-sample-4.jpg',
                 'title' => null
             ],
             [
                 'owner_id' => 1,
-                'filename' => 'sample5.jpg',
+                'filename' => 'https://res.cloudinary.com/dbxugazeh/image/upload/v1668413754/samples/landscapes/nature-mountains.jpg',
                 'title' => null
             ],
             [
                 'owner_id' => 1,
-                'filename' => 'sample6.jpg',
+                'filename' => 'https://res.cloudinary.com/dbxugazeh/image/upload/v1668413750/samples/landscapes/beach-boat.jpg',
                 'title' => null
             ]]);
     }
